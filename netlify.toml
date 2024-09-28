@@ -1,0 +1,15 @@
+# netlify.toml
+[build]
+  command = "npm run build"  # The command to build the Next.js app
+  publish = ".next"          # The directory to deploy (Next.js outputs its build files in `.next`)
+  functions = "netlify/functions"  # Define a folder for serverless functions if needed
+
+[build.environment]
+  NODE_VERSION = "18.17.0"    # Update Node.js version to the required version
+  NEXT_PUBLIC_API_URL = "https://world.openfoodfacts.org"  # Define environment variables here
+
+# Redirect all routes to Next.js handler
+[[redirects]]
+  from = "/*"
+  to = "/"
+  status = 200
